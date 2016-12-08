@@ -24,24 +24,22 @@
 *}
 
 {if $status == 'ok'}
-<p>{l s='Your order on %s is complete.' sprintf=$shop_name mod='banksmandiri'}
-		<br /><br />
-		{l s='Please send us a bank wire with' mod='banksmandiri'}
-		<br /><br />- {l s='Amount' mod='banksmandiri'} <span class="price"><strong>{$total_to_pay}</strong></span>
-		<br /><br />- {l s='Name of account owner' mod='banksmandiri'}  <strong>{if $banksmandiriOwner}{$banksmandiriOwner}{else}___________{/if}</strong>
-		<br /><br />- {l s='Include these details' mod='banksmandiri'}  <strong>{if $banksmandiriDetails}{$banksmandiriDetails}{else}___________{/if}</strong>
-		<br /><br />- {l s='Bank name' mod='banksmandiri'}  <strong>{if $banksmandiriAddress}{$banksmandiriAddress}{else}___________{/if}</strong>
-		{if !isset($reference)}
-			<br /><br />- {l s='Do not forget to insert your order number #%d in the subject of your bank wire.' sprintf=$id_order mod='banksmandiri'}
-		{else}
-			<br /><br />- {l s='Do not forget to insert your order reference %s in the subject of your bank wire.' sprintf=$reference mod='banksmandiri'}
-		{/if}		<br /><br />{l s='An email has been sent with this information.' mod='banksmandiri'}
-		<br /><br /> <strong>{l s='Your order will be sent as soon as we receive payment.' mod='banksmandiri'}</strong>
-		<br /><br />{l s='If you have questions, comments or concerns, please contact our' mod='banksmandiri'} <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='banksmandiri'}</a>.
-	</p>
+    <p>
+      {l s='Your order on %s is complete.' sprintf=[$shop_name] mod='banksmandiri'}<br/>
+      {l s='Please send us payment via Bank Syariah Mandiri with:' mod='banksmandiri'}
+    </p>
+    {include file='module:banksmandiri/views/templates/hook/_partials/payment_infos.tpl'}
+
+    <p>
+      {l s='Please specify your order reference %s in the bankwire description.' sprintf=[$reference] mod='banksmandiri'}<br/>
+      {l s='We\'ve also sent you this information by e-mail.' mod='banksmandiri'}
+    </p>
+    <strong>{l s='Your order will be sent as soon as we receive payment.' mod='banksmandiri'}</strong>
+    <p>
+      {l s='If you have questions, comments or concerns, please contact our [1]expert customer support team[/1].' mod='banksmandiri' tags=["<a href='{$contact_url}'>"]}
+    </p>
 {else}
-	<p class="warning">
-		{l s='We noticed a problem with your order. If you think this is an error, feel free to contact our' mod='banksmandiri'} 
-		<a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='banksmandiri'}</a>.
-	</p>
+    <p class="warning">
+      {l s='We noticed a problem with your order. If you think this is an error, feel free to contact our [1]expert customer support team[/1].' mod='banksmandiri' tags=["<a href='{$contact_url}'>"]}
+    </p>
 {/if}

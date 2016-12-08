@@ -23,9 +23,14 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<div class="alert alert-info">
-<img src="../modules/banksmandiri/logo.png" style="float:left; margin-right:15px;" height="60">
-<p><strong>{l s="This module allows you to accept secure payments by Bank Syariah Mandiri." d='Modules.BankSMandiri.Admin'}</strong></p>
-<p>{l s="If the client chooses to pay by Bank Syariah Mandiri, the order's status will change to 'Awaiting Bank Syariah Mandiri Payment.'" d='Modules.BankSMandiri.Admin'}</p>
-<p>{l s="That said, you must manually confirm the order upon receiving the Bank Syariah Mandiri." d='Modules.BankSMandiri.Admin'}</p>
-</div>
+
+<dl>
+    <dt>{l s='Amount' mod='banksmandiri'}</dt>
+    <dd>{$total}</dd>
+    <dt>{l s='Name of account owner' mod='banksmandiri'}</dt>
+    <dd>{$banksmandiriOwner}</dd>
+    <dt>{l s='Please include these details' mod='banksmandiri'}</dt>
+    <dd>{$banksmandiriDetails}</dd>
+    <dt>{l s='Bank name' mod='banksmandiri'}</dt>
+    <dd>{$banksmandiriAddress nofilter}</dd>
+</dl>

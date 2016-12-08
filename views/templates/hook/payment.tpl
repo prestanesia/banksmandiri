@@ -23,9 +23,9 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<p class="payment_module_smandiri">
-	<a class="banksmandiri" href="{$link->getModuleLink('banksmandiri', 'payment')|escape:'html'}" title="{l s='Pay by Bank Syariah Mandiri' mod='banksmandiri'}">
-		<img src="{$this_path_bw}bankwire.jpg" alt="{l s='Pay by Bank Syariah Mandiri' mod='banksmandiri'}" />
-		{l s='Pay by Bank Syariah Mandiri' mod='banksmandiri'}
+<p class="payment_module">
+	<a href="{$link->getModuleLink('banksmandiri', 'payment')|escape:'html'}" title="{l s='Pay by Bank Syariah Mandiri' d='Modules.BankSMandiri.Shop'}">
+		<img src="{$this_path_bw}logo.png" alt="{l s='Pay by Bank Syariah Mandiri' d='Modules.BankSMandiri.Shop'}"/>
+		{l s='Pay by Bank Syariah Mandiri' d='Modules.BankSMandiri.Shop'}&nbsp;<span>{l s='(order processing will be longer)' d='Modules.BankSMandiri.Shop'}</span>
 	</a>
 </p>
